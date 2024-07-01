@@ -22,5 +22,5 @@ This web application allows users to add and manage movie reviews. Here are the 
 1. Clone the repository:
 
    ```bash
-   git clone <repository-url>
+   git clone <https://github.com/RyanEPhillips/Movie-Review.git>
    cd movie-review-app
