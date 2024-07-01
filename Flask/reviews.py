@@ -38,7 +38,7 @@ def add_review():
 @app.route('/toggle/<int:id>')
 def toggle_seen(id):
     review = reviews.query.get(id)
-    review.seen = not review.seen
+    review.completed = not review.completed
     db.session.commit()
     return redirect(url_for('show_reviews'))
 
