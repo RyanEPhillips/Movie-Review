@@ -18,8 +18,10 @@
                 <div class="title">{{ r.title }}</div>
                 <div class="review">{{ r.review }}</div>
                 <a href="{{url_for('toggle_seen', id=r.id) }}">
-                    {% if r.seen %}
+                    {% if review.seen %}
                     (Seen)
+                    {% else %}
+                    (watch next)
                     {% endif %}
                 </a>
                 <a href="{{url_for('delete_review', id=r.id) }}">Delete review</a>
@@ -29,7 +31,7 @@
         <form id="form" action="{{ url_for('add_review') }}" method="POST" class="add-review-form">
             <input id="input1" type="text" name="title" placeholder="Title" required autofocus>
             <input id="input2" type="text" name="review" placeholder="Review" required>
-            <button id="button type="submit">Add Review</button>
+            <button id="button" type="submit">Add Review</button>
         </form>
 
     </div>
