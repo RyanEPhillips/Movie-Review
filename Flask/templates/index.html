@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Reviews</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='reel.jpg') }}">
+</head>
+
+<body>
+    <div id="container1">
+        <h1 id="head">Movie Reviews</h1>
+        <ul class="reviews">
+            {% for r in review %}
+            
+            <li>
+                <div class="title">{{ r.title }}</div>
+                <div class="review">{{ r.review }}</div>
+                <a href="{{url_for('toggle_seen', id=r.id) }}">
+                    {% if r.seen %}
+                    (Seen)
+                    {% endif %}
+                </a>
+                <a href="{{url_for('delete_review', id=r.id) }}">Delete review</a>
+            </li>    
+            {% endfor %}
+        </ul>
+        <form id="form" action="{{ url_for('add_review') }}" method="POST" class="add-review-form">
+            <input id="input1" type="text" name="title" placeholder="Title" required autofocus>
+            <input id="input2" type="text" name="review" placeholder="Review" required>
+            <button id="button type="submit">Add Review</button>
+        </form>
+
+    </div>
+    
+</body>
+</html>
